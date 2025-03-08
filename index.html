@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-CULTURE GLOBAL ACADEMY - 글로벌 한류 교육 프로그램</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff2e95;
+            --secondary-color: #6e20ff;
+            --accent-color: #00c2ff;
+            --gradient-start: #ff2e95;
+            --gradient-end: #6e20ff;
+            --gradient-accent: #00c2ff;
+            --text-color: #2c2c2c;
+            --text-color-light: #5e5e5e;
+            --light-bg: #f8f9fc;
+            --white: #FFFFFF;
+            --dark-color: #191c30;
+            --border-radius: 16px;
+            --box-shadow: 0 12px 32px rgba(28, 0, 78, 0.08);
+            --hover-transform: translateY(-8px);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* 특수 효과 */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--primary-color);
+            top: -200px;
+            right: -200px;
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            background: var(--secondary-color);
+            bottom: -300px;
+            left: -300px;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-color);
+            top: 50%;
+            right: -200px;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            margin-right: 12px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(110, 32, 255, 0.2);
+        }
+
+        .logo-img::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            top: 0;
+            left: 0;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--dark-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+            font-weight: 900;
+            position: relative;
+        }
+
+        .logo-text span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin: 0 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-btn {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(255, 46, 149, 0.15), 0 4px 6px -4px rgba(110, 32, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .header-btn:hover::before {
+            left: 100%;
+        }
+
+        .header-btn i {
+            margin-right: 8px;
+        }
+
+        .header-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(255, 46, 149, 0.2), 0 10px 10px -5px rgba(110, 32, 255, 0.15);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: radial-gradient(ellipse at bottom right, rgba(110, 32, 255, 0.2), transparent 70%),
+                radial-gradient(ellipse at top left, rgba(255, 46, 149, 0.2), transparent 70%),
+                var(--white);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: var(--text-color-light);
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(110, 32, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .primary-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .primary-btn:hover::before {
+            opacity: 1;
+        }
+
+        .primary-btn i {
+            margin-right: 10px;
+        }
+
+        .primary-btn:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 20px 40px rgba(110, 32, 255, 0.3);
+        }
+
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            border: 2px solid rgba(110, 32, 255, 0.3);
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .secondary-btn i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: rgba(110, 32, 255, 0.05);
+            transform: var(--hover-transform);
+            border-color: var(--secondary-color);
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 550px;
+            z-index: 0;
+        }
+
+        .hero-shape {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before,
+        .about::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.05), rgba(110, 32, 255, 0.05));
+            z-index: 0;
+        }
+
+        .about::before {
+            top: -150px;
+            right: -100px;
+        }
+
+        .about::after {
+            bottom: -150px;
+            left: -100px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-img-main {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-img-main:hover {
+            transform: scale(1.02);
+        }
+
+        .about-img-main::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            z-index: -1;
+            opacity: 0.2;
+            transition: var(--transition);
+        }
+
+        .about-img-main:hover::after {
+            top: 15px;
+            right: -15px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, rgba(255, 46, 149, 0.1), rgba(110, 32, 255, 0.1));
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(110, 32, 255, 0.1);
+        }
+
+        .about-badge i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--dark-color);
+            position: relative;
+            line-height: 1.3;
+        }
+
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+        }
+
+        .about-description {
+            color: var(--text-color-light);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-points {
+            margin-bottom: 35px;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+        }
+
+        .point-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .point-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            margin-top: 2px;
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(110, 32, 255, 0.2);
+        }
+
+        .point-text {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-subtitle::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            top: 50%;
+            left: -60px;
+            transform: translateY(-50%);
+            border-radius: 10px;
+        }
+
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            top: 50%;
+            right: -60px;
+            transform: translateY(-50%);
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-color-light);
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            z-index: -1;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .feature-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            height: 5px;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 30px;
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.1), rgba(110, 32, 255, 0.1));
+            color: var(--primary-color);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            color: white;
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 10px 20px rgba(110, 32, 255, 0.2);
+        }
+
+        .feature-card:hover .feature-icon::before {
+            opacity: 1;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--dark-color);
+        }
+
+        .feature-description {
+            color: var(--text-color-light);
+            line-height: 1.7;
+        }
+
+        /* PROGRAMS SECTION */
+        .programs {
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .programs-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .program-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+
+        .program-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .program-card:hover .program-img {
+            transform: scale(1.05);
+        }
+
+        .program-content {
+            padding: 30px;
+        }
+
+        .program-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .program-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+        }
+
+        .program-description {
+            color: var(--text-color-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .program-features {
+            margin-bottom: 30px;
+        }
+
+        .program-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            background-color: rgba(110, 32, 255, 0.03);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .program-feature:hover {
+            background-color: rgba(110, 32, 255, 0.06);
+            transform: translateX(5px);
+        }
+
+        .program-feature i {
+            color: var(--secondary-color);
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .program-feature span {
+            font-weight: 500;
+        }
+
+        /* PRICING SECTION */
+        .pricing {
+            background-color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-table-container {
+            margin-top: 50px;
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 20px 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+        }
+
+        .pricing-table thead th {
+            font-weight: 600;
+            padding: 25px;
+            letter-spacing: 0.5px;
+            font-size: 1.1rem;
+        }
+
+        .pricing-table tbody tr {
+            transition: var(--transition);
+        }
+
+        .pricing-table tbody tr:hover {
+            background-color: rgba(110, 32, 255, 0.03);
+        }
+
+        .pricing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--dark-color);
+            text-align: left;
+        }
+
+        .pricing-table .discount {
+            color: var(--primary-color);
+            font-weight: 700;
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: rgba(255, 46, 149, 0.1);
+            border-radius: 30px;
+        }
+
+        .pricing-table .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .pricing-table .price-regular {
+            text-decoration: line-through;
+            color: var(--text-color-light);
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: var(--text-color-light);
+            background-color: rgba(110, 32, 255, 0.03);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* CTA SECTION */
+        .cta {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1000/1000');
+            background-size: cover;
+            opacity: 0.05;
+            mix-blend-mode: overlay;
+        }
+
+        .cta-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .cta-particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+
+        .cta-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .cta-description {
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .cta-btn {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 18px 45px;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.05), rgba(110, 32, 255, 0.05));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover::before {
+            opacity: 1;
+        }
+
+        .cta-btn i {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .cta-btn:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 100px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: white;
+        }
+
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 3px;
+        }
+
+        .footer-about p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1rem;
+            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .footer-links a i {
+            margin-right: 12px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(8px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1rem;
+            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover::before {
+            opacity: 1;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .footer-bottom-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom-links a:hover::after {
+            width: 100%;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .cta-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                width: 40%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            :root {
+                --border-radius: 14px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                padding: 160px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .about-title {
+                font-size: 2.3rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --border-radius: 12px;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                padding: 30px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 130px 0 60px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle::before,
+            .section-subtitle::after {
+                display: none;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-table-container {
+                overflow-x: auto;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-description {
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+
+        /* 애니메이션 효과 */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulsing {
+            animation: pulse 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 배경 요소 -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <div class="logo-text">K-<span>CULTURE</span></div>
+            </div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#about" class="nav-link">소개</a></li>
+                    <li class="nav-item"><a href="#features" class="nav-link">특장점</a></li>
+                    <li class="nav-item"><a href="#programs" class="nav-link">프로그램</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">가격 정보</a></li>
+                </ul>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform"
+                target="_blank" class="header-btn">
+                <i class="fas fa-user-plus"></i> 신청하기
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="text-gradient">K-CULTURE<br>GLOBAL ACADEMY</h1>
+                <p>현직 한류 문화 전문가들과 함께하는 글로벌 교육 프로그램으로 한류 문화를 경험하고 배워보세요.</p>
+                <div class="hero-btns">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform"
+                        target="_blank" class="primary-btn">
+                        <i class="fas fa-paper-plane"></i> 프로그램 신청하기
+                    </a>
+                    <a href="#programs" class="secondary-btn">
+                        <i class="fas fa-info-circle"></i> 자세히 알아보기
+                    </a>
+                </div>
+            </div>
+            <img src="/api/placeholder/600/600" alt="K-CULTURE 이미지" class="hero-image floating">
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="K-CULTURE GLOBAL ACADEMY" class="about-img-main pulsing">
+                </div>
+                <div class="about-text">
+                    <div class="about-badge">
+                        <i class="fas fa-star"></i> 글로벌 교육기관
+                    </div>
+                    <h2 class="about-title">K-CULTURE를 이끄는<br>최고의 전문가들</h2>
+                    <p class="about-description">
+                        K-CULTURE를 이루는 각 분야 최고의 현직 전문가들이 한국의 각 대학기관, 문화예술협회, 엔터테인먼트, 아카데미와 연계하여 단순 문화체험부터 한국 유학 및 취업준비까지
+                        가능한 교육 프로그램을 한국과 해외 현지에서 직접 제공하는 글로벌 교육기관입니다.
+                    </p>
+                    <div class="about-points">
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="point-text">한류 문화를 선도하는 현직 전문가들의 해외 교육 진출을 지원</div>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="point-text">외국인 학생의 한국의 대학교, 대학원 등 한국 현지 교육기관으로의 진출을 지원</div>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="point-text">뻔한 수업은 FUN함으로, 버리고 싶은 수업은 VARIETY함으로, 배움에 재미와 설레임을 느끼는 교육 프로그램</div>
+                        </div>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform"
+                        target="_blank" class="primary-btn">
+                        <i class="fas fa-paper-plane"></i> 프로그램 신청하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">특장점</p>
+                <h2 class="section-title">K-CULTURE GLOBAL ACADEMY의 특별함</h2>
+                <p class="section-description">재미있고, 다양하고, 지속가능한 성장을 추구하는 프로그램</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">현직 전문가와 함께하는 교육</h3>
+                    <p class="feature-description">각 분야 최고의 현직 전문가들이 직접 수업을 진행하여 실무 중심의 생생한 경험과 노하우를 전달합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3 class="feature-title">글로벌 문화 교류</h3>
+                    <p class="feature-description">한국과 해외 현지를 오가며 진정한 글로벌 문화 교류의 장을 마련합니다. 한국문화의 전파와 동시에 현지 문화의 이해도 높일 수
+                        있습니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="feature-title">유학 및 취업 지원</h3>
+                    <p class="feature-description">단순 문화체험을 넘어 한국 유학 및 취업을 위한 실질적인 도움을 제공하여 참가자의 미래 진로까지 고려합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h3 class="feature-title">FUN & VARIETY</h3>
+                    <p class="feature-description">지루한 수업은 No! 재미와 다양성을 통해 배움의 즐거움을 경험하고 지속가능한 성장을 추구합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">프로그램</p>
+                <h2 class="section-title">우리의 교육 프로그램</h2>
+                <p class="section-description">한국과 해외에서 진행되는 다양한 단기 체험 프로그램</p>
+            </div>
+            <div class="programs-content">
+                <div class="row">
+                    <div class="program-card">
+                        <div class="program-img-container">
+                            <img src="/api/placeholder/800/450" alt="해외 현지 캠프" class="program-img">
+                        </div>
+                        <div class="program-content">
+                            <h3 class="program-title">해외 현지 교육 캠프</h3>
+                            <p class="program-description">한국인 분야별 전문가와 교육 프로그램을 해외 현지에 직접 파견하여 단기 캠프 진행</p>
+                            <div class="program-features">
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>현지 학생들에게 한국 문화 직접 전파</span>
+                                </div>
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>현직 전문가의 생생한 지식 전달</span>
+                                </div>
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>1주~24주 다양한 기간 선택 가능</span>
+                                </div>
+                            </div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform"
+                                target="_blank" class="primary-btn">
+                                <i class="fas fa-paper-plane"></i> 신청하기
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-img-container">
+                            <img src="/api/placeholder/800/450" alt="한국 문화 체험 캠프" class="program-img">
+                        </div>
+                        <div class="program-content">
+                            <h3 class="program-title">한국 문화 체험 캠프</h3>
+                            <p class="program-description">해외 현지 학생들을 모집하여 한국어 교육 + 한국문화체험교육을 위한 문화교육캠프 진행</p>
+                            <div class="program-features">
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>한국어 집중 교육</span>
+                                </div>
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>K-POP, K-Drama, 한식 등 다양한 문화 체험</span>
+                                </div>
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>한국 대학 및 기관 방문 기회</span>
+                                </div>
+                            </div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform"
+                                target="_blank" class="primary-btn">
+                                <i class="fas fa-paper-plane"></i> 신청하기
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-img-container">
+                            <img src="/api/placeholder/800/450" alt="K-Pop 심화 프로그램" class="program-img">
+                        </div>
+                        <div class="program-content">
+                            <h3 class="program-title">K-Pop 전문가 양성 과정</h3>
+                            <p class="program-description">K-Pop 댄스, 보컬, 프로듀싱 등 분야별 현직 전문가들의 심화 교육으로 K-Pop 전문가 양성</p>
+                            <div class="program-features">
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>현직 아이돌 트레이너 멘토링</span>
+                                </div>
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>실제 엔터테인먼트 연습생 시스템 체험</span>
+                                </div>
+                                <div class="program-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>K-Pop 산업 현장 방문 및 네트워킹</span>
+                                </div>
+                            </div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform" target="_blank" class="primary-btn">
+                                <i class="fas fa-paper-plane"></i> 신청하기
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">가격 정보</p>
+                <h2 class="section-title">합리적인 가격으로 제공되는 프로그램</h2>
+                <p class="section-description">기간에 따른 할인 혜택을 제공합니다</p>
+            </div>
+
+            <div class="pricing-table-container">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>기간</th>
+                            <th>정가</th>
+                            <th>할인율</th>
+                            <th>최종가</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1주 캠프</td>
+                            <td><span class="price-regular">$400</span></td>
+                            <td><span class="discount">0%</span></td>
+                            <td><span class="price">$400</span></td>
+                        </tr>
+                        <tr>
+                            <td>3주 캠프</td>
+                            <td><span class="price-regular">$1,200</span></td>
+                            <td><span class="discount">2%</span></td>
+                            <td><span class="price">$1,176</span></td>
+                        </tr>
+                        <tr>
+                            <td>6주 캠프</td>
+                            <td><span class="price-regular">$2,400</span></td>
+                            <td><span class="discount">4%</span></td>
+                            <td><span class="price">$2,304</span></td>
+                        </tr>
+                        <tr>
+                            <td>9주 캠프</td>
+                            <td><span class="price-regular">$3,600</span></td>
+                            <td><span class="discount">6%</span></td>
+                            <td><span class="price">$3,384</span></td>
+                        </tr>
+                        <tr>
+                            <td>12주 캠프</td>
+                            <td><span class="price-regular">$4,800</span></td>
+                            <td><span class="discount">8%</span></td>
+                            <td><span class="price">$4,416</span></td>
+                        </tr>
+                        <tr>
+                            <td>24주 캠프</td>
+                            <td><span class="price-regular">$9,600</span></td>
+                            <td><span class="discount">10%</span></td>
+                            <td><span class="price">$8,640</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pricing-note">※ 모든 가격은 VAT 별도입니다.</div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-particles" id="particles"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">지금 바로 신청하세요</h2>
+                <p class="cta-description">재미있고, 다양하고, 지속가능한 K-CULTURE 교육을 경험해보세요.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform"
+                    target="_blank" class="cta-btn">
+                    <i class="fas fa-paper-plane"></i> 신청하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>K-CULTURE GLOBAL ACADEMY</h3>
+                    <p>현직 한류 문화 전문가들과 함께하는 글로벌 교육 프로그램을 통해 한국 문화를 전 세계에 알리고 국제 교류를 활성화합니다.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column footer-links">
+                    <h3>빠른 링크</h3>
+                    <ul>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> 소개</a></li>
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i> 특장점</a></li>
+                        <li><a href="#programs"><i class="fas fa-chevron-right"></i> 프로그램</a></li>
+                        <li><a href="#pricing"><i class="fas fa-chevron-right"></i> 가격 정보</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfEMmmWSbvueXqn0SawfD1iiB7jJftDhIEEMikOSslt1-FcWA/viewform"
+                                target="_blank"><i class="fas fa-chevron-right"></i> 신청하기</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-contact">
+                    <h3>연락처</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 서울특별시 강남구</p>
+                    <p><i class="fas fa-phone"></i> +82 10-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@kculture-academy.com</p>
+                    <p><i class="fas fa-clock"></i> 평일 09:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 K-CULTURE GLOBAL ACADEMY. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 모바일 메뉴 토글
+        document.getElementById('mobileToggle').addEventListener('click', function () {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // 스크롤 시 헤더 효과
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                document.getElementById('header').classList.add('scrolled');
+            } else {
+                document.getElementById('header').classList.remove('scrolled');
+            }
+        });
+
+        // 스무스 스크롤링
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // 모바일 메뉴가 열려있으면 닫기
+                    document.getElementById('navMenu').classList.remove('active');
+                }
+            });
+        });
+
+        // CTA 섹션 파티클 효과
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('cta-particle');
+
+                // 랜덤한 위치, 크기, 애니메이션 생성
+                const size = Math.random() * 10 + 5;
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = left + '%';
+                particle.style.top = top + '%';
+                particle.style.animationDuration = duration + 's';
+                particle.style.animationDelay = delay + 's';
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 페이지 로드 시 파티클 생성
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+
+</html>
