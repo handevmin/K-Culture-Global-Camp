@@ -139,11 +139,8 @@
         }
 
         .logo-img {
-            width: 48px;
+            width: auto;
             height: 48px;
-            margin-right: 12px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -151,7 +148,6 @@
             font-size: 20px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(110, 32, 255, 0.2);
         }
 
         .logo-img::after {
@@ -390,7 +386,18 @@
             border-color: var(--secondary-color);
         }
 
-        .hero-image {
+        .hero-image1 {
+            position: absolute;
+            top: 6%;
+            border-radius:var(--border-radius);
+            right: -100px;
+            transform: translateY(50%);
+            width: 65%;
+            max-width: 650px;
+            z-index: 0;
+        }
+
+        .hero-image2 {
             position: absolute;
             top: 50%;
             right: 0;
@@ -1494,7 +1501,7 @@
         <div class="container header-container">
             <div class="logo">
                 <div class="logo-img">
-                    <i class="fas fa-globe-asia"></i>
+                    <img src="logo.png" alt="K-CULTURE GLOBAL ACADEMY Logo" class="logo-img">
                 </div>
                 <div class="logo-text">K-<span>CULTURE</span></div>
             </div>
@@ -1531,7 +1538,7 @@
                     </a>
                 </div>
             </div>
-            <img src="/api/placeholder/600/600" alt="K-CULTURE Image" class="hero-image floating">
+            <img src="main.JPG" alt="K-CULTURE Image" class="hero-image1 floating">
         </div>
     </section>
 
@@ -1539,7 +1546,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="K-CULTURE GLOBAL ACADEMY" class="about-img-main pulsing">
+                    <img src="about.jpg" alt="K-CULTURE GLOBAL ACADEMY" class="about-img-main pulsing">
                 </div>
                 <div class="about-text">
                     <div class="about-badge">
@@ -1629,10 +1636,10 @@
                 <div class="row">
                     <div class="program-card">
                         <div class="program-img-container">
-                            <img src="/api/placeholder/800/450" alt="Overseas Local Camp" class="program-img">
+                            <img src="Overseas Local Camp.jpg" alt="Overseas Local Camp" class="program-img">
                         </div>
                         <div class="program-content">
-                            <h3 class="program-title">Overseas Education Camp</h3>
+                            <h3 class="program-title">Overseas K-Culture Global Camp</h3>
                             <p class="program-description">Short-term camps conducted by dispatching Korean field specialists and educational programs directly to overseas locations</p>
                             <div class="program-features">
                                 <div class="program-feature">
@@ -1657,7 +1664,7 @@
 
                     <div class="program-card">
                         <div class="program-img-container">
-                            <img src="/api/placeholder/800/450" alt="Korean Culture Experience Camp" class="program-img">
+                            <img src="Korean Culture Experience Camp.jpg" alt="Korean Culture Experience Camp" class="program-img">
                         </div>
                         <div class="program-content">
                             <h3 class="program-title">Korean Culture Experience Camp</h3>
@@ -1685,26 +1692,27 @@
 
                     <div class="program-card">
                         <div class="program-img-container">
-                            <img src="/api/placeholder/800/450" alt="K-Pop Advanced Program" class="program-img">
+                            <img src="K-Tour Program.png" alt="K-Tour Program" class="program-img">
                         </div>
                         <div class="program-content">
-                            <h3 class="program-title">K-Pop Expert Training Course</h3>
-                            <p class="program-description">Training K-Pop experts through advanced education by current experts in fields such as K-Pop dance, vocals, and producing</p>
+                            <h3 class="program-title">K-Tour Program</h3>
+                            <p class="program-description">Experience Korean culture in-depth through guided tours of historical sites, cultural landmarks, and popular tourist destinations</p>
                             <div class="program-features">
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Mentoring from current idol trainers</span>
+                                    <span>Guided tours of historical sites and cultural landmarks</span>
                                 </div>
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Experience actual entertainment trainee systems</span>
+                                    <span>Interactive experiences at traditional and modern cultural venues</span>
                                 </div>
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>K-Pop industry site visits and networking</span>
+                                    <span>Tailored tours based on specific interests (K-pop, history, food, etc.)</span>
                                 </div>
                             </div>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScuIhJ9_BO2IYM3DF9OVWItHFY5o8IjegMIOyex3zZrYDkFNg/viewform" target="_blank" class="primary-btn">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScuIhJ9_BO2IYM3DF9OVWItHFY5o8IjegMIOyex3zZrYDkFNg/viewform"
+                                target="_blank" class="primary-btn">
                                 <i class="fas fa-paper-plane"></i> Apply Now
                             </a>
                         </div>
