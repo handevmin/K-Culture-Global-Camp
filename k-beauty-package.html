@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Beauty Package - Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff2e95;
+            --secondary-color: #6e20ff;
+            --accent-color: #00c2ff;
+            --gradient-start: #ff2e95;
+            --gradient-end: #6e20ff;
+            --gradient-accent: #00c2ff;
+            --text-color: #2c2c2c;
+            --text-color-light: #5e5e5e;
+            --light-bg: #f8f9fc;
+            --white: #FFFFFF;
+            --dark-color: #191c30;
+            --border-radius: 16px;
+            --box-shadow: 0 12px 32px rgba(28, 0, 78, 0.08);
+            --hover-transform: translateY(-8px);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            padding: 15px 0;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: auto;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--dark-color);
+            font-weight: 900;
+            position: relative;
+        }
+
+        /* Blob background */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--primary-color);
+            top: -100px;
+            right: -200px;
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            background: var(--secondary-color);
+            bottom: -300px;
+            left: -300px;
+        }
+
+        /* Page Structure */
+        .page-wrapper {
+            padding-top: 80px; /* Space for fixed header */
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon-banner {
+            width: 100%;
+            padding: 20px 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .coming-soon-banner i {
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: 20px 0 60px;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 60px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .coming-soon-title {
+            font-size: 2.8rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .coming-soon-description {
+            font-size: 1.2rem;
+            color: var(--text-color-light);
+            margin-bottom: 40px;
+        }
+
+        .package-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .package-feature {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.05), rgba(110, 32, 255, 0.05));
+            padding: 15px 25px;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .package-feature:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-feature i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 16px 40px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 15px 35px rgba(110, 32, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .back-button i {
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        .back-button:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 20px 40px rgba(110, 32, 255, 0.3);
+        }
+
+        .notify-form {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .notify-text {
+            font-size: 1rem;
+            color: var(--text-color-light);
+            margin-bottom: 15px;
+        }
+        
+        .main-services {
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .services-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            position: relative;
+        }
+        
+        .services-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+        }
+        
+        .service-card {
+            display: flex;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.15), rgba(110, 32, 255, 0.15));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .service-icon i {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        .service-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .service-content p {
+            color: var(--text-color-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 40px 30px;
+            }
+
+            .coming-soon-title {
+                font-size: 2.3rem;
+            }
+
+            .coming-soon-description {
+                font-size: 1.1rem;
+            }
+
+            .package-features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .service-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .service-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .coming-soon-title {
+                font-size: 2rem;
+            }
+
+            .coming-soon-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img">
+                    <img src="logo.png" alt="K-CULTURE GLOBAL ACADEMY Logo" class="logo-img">
+                </div>
+                <div class="logo-text">K<span style="color: var(--dark-color);">-</span><span>CULTURE</span></div>
+            </a>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="coming-soon-banner">
+            <i class="fas fa-hourglass-half"></i> Coming Soon
+        </div>
+
+        <div class="content-area">
+            <div class="container">
+                <div class="main-content">
+                    <h1 class="coming-soon-title">K-Beauty Tour Package</h1>
+                    <p class="coming-soon-description">We're designing an exclusive K-Beauty tour experience to showcase Korea's world-famous beauty industry. Our specialized package will feature premium clinic visits, professional makeup sessions, and exclusive photo shoots to capture your K-Beauty transformation.</p>
+                    
+                    <div class="package-features">
+                        <div class="package-feature">
+                            <i class="fas fa-clinic-medical"></i>
+                            <span>K-Beauty Clinic Experience</span>
+                        </div>
+                        <div class="package-feature">
+                            <i class="fas fa-magic"></i>
+                            <span>Professional K-Makeup Session</span>
+                        </div>
+                        <div class="package-feature">
+                            <i class="fas fa-camera"></i>
+                            <span>Professional Photo Shoot</span>
+                        </div>
+                        <div class="package-feature">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>K-Beauty Products Shopping</span>
+                        </div>
+                    </div>
+                    
+                    <div class="main-services">
+                        <h3 class="services-title">Our Main Services</h3>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-clinic-medical"></i>
+                            </div>
+                            <div class="service-content">
+                                <h4>Premium K-Beauty Clinic Experience</h4>
+                                <p>Visit top-rated Korean dermatology and beauty clinics to experience cutting-edge treatments and consultations. Get personalized skin analysis and sample non-invasive treatments that have made Korean skincare world-famous.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="service-content">
+                                <h4>Professional K-Makeup Transformation</h4>
+                                <p>Experience a complete makeup transformation by professional Korean makeup artists who work with K-pop idols and celebrities. Learn techniques and trends unique to Korean beauty standards and receive personalized makeup advice.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="service-content">
+                                <h4>Exclusive Photo Shoot Experience</h4>
+                                <p>Capture your K-Beauty transformation with a professional photo shoot in a Korean studio. Receive digital and printed photos of your experience, styled and directed by industry professionals with various Korean-style concept options.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="notify-form">
+                        <p class="notify-text">Experience the full spectrum of K-Beauty from clinical treatments to professional makeup and photography. Package details are being finalized. Check back soon for more information!</p>
+                        <a href="apply-korea.html" class="back-button">
+                            <i class="fas fa-arrow-left"></i> Back to Programs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Header effect on scroll
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                document.getElementById('header').classList.add('scrolled');
+            } else {
+                document.getElementById('header').classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html> 

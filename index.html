@@ -30,6 +30,11 @@
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        /* Hide pricing section */
+        #pricing {
+            display: none;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -163,14 +168,18 @@
         .logo-text {
             font-weight: 800;
             font-size: 1.6rem;
-            color: var(--dark-color);
+            color: var(--primary-color);
             letter-spacing: -0.5px;
         }
 
         .logo-text span {
-            color: var(--primary-color);
+            color: var(--dark-color);
             font-weight: 900;
             position: relative;
+        }
+
+        .logo-text span::after {
+            content: none;
         }
 
         .logo-text span::after {
@@ -800,6 +809,9 @@
             color: var(--dark-color);
             position: relative;
             padding-bottom: 15px;
+            min-height: 85px;
+            display: flex;
+            align-items: center;
         }
 
         .program-title::after {
@@ -821,6 +833,7 @@
 
         .program-features {
             margin-bottom: 30px;
+            height: 330px;
         }
 
         .program-feature {
@@ -1488,6 +1501,142 @@
         .pulsing {
             animation: pulse 4s ease-in-out infinite;
         }
+        
+        /* Override for logo underline */
+        .logo-text span::after {
+            content: none !important;
+        }
+
+        /* Contact section styles */
+        .contact {
+            background-color: var(--white);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.1), rgba(110, 32, 255, 0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-color);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover .contact-icon {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            transform: rotate(5deg);
+        }
+
+        .contact-info {
+            flex-grow: 1;
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+        }
+
+        .contact-info p {
+            color: var(--text-color-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .map-section {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 992px) {
+            .contact-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 30px;
+            }
+
+            .map-section {
+                height: 350px;
+            }
+        }
     </style>
 </head>
 
@@ -1503,14 +1652,14 @@
                 <div class="logo-img">
                     <img src="logo.png" alt="K-CULTURE GLOBAL ACADEMY Logo" class="logo-img">
                 </div>
-                <div class="logo-text">K-<span>CULTURE</span></div>
+                <div class="logo-text">K<span style="color: var(--dark-color);">-</span><span>CULTURE</span></div>
             </div>
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
                     <li class="nav-item"><a href="#programs" class="nav-link">Programs</a></li>
-                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
@@ -1526,13 +1675,10 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="text-gradient">K-CULTURE<br>GLOBAL ACADEMY</h1>
-                <p>Experience and learn about Korean Wave culture through our global education program led by current Korean Wave culture experts.</p>
+                <p>Explore and experience K-Culture through our global education program, led by active experts in the K-Culture industry — offered both in Korea and on international campuses around the world.</p>
                 <div class="hero-btns">
-                    <a href="" class="primary-btn">
+                    <a href="#programs" class="primary-btn">
                         <i class="fas fa-paper-plane"></i> Apply for Program
-                    </a>
-                    <a href="#programs" class="secondary-btn">
-                        <i class="fas fa-info-circle"></i> Learn More
                     </a>
                 </div>
             </div>
@@ -1557,26 +1703,29 @@
                     <div class="about-points">
                         <div class="point-item">
                             <div class="point-icon">
-                                <i class="fas fa-check"></i>
+                                <i class="fas fa-star"></i>
                             </div>
-                            <div class="point-text">Supporting current experts leading Korean Wave culture to advance in global education</div>
+                            <div class="point-text">Learn from the Best: K-Culture Lessons Led by Top Industry Experts</div>
                         </div>
                         <div class="point-item">
                             <div class="point-icon">
-                                <i class="fas fa-check"></i>
+                                <i class="fas fa-palette"></i>
                             </div>
-                            <div class="point-text">Supporting international students' entry into Korean educational institutions such as universities and graduate schools</div>
+                            <div class="point-text">Create to Learn: Content-Based Education for Real-World Portfolios</div>
                         </div>
                         <div class="point-item">
                             <div class="point-icon">
-                                <i class="fas fa-check"></i>
+                                <i class="fas fa-users"></i>
                             </div>
-                            <div class="point-text">Transforming ordinary lessons into FUN, unwanted lessons into VARIETY, creating educational programs where learning is exciting and enjoyable</div>
+                            <div class="point-text">Total Immersion, K-Culture Style: Powered by Team K-Culture</div>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <div class="point-text">Global On-Site Experience: K-Culture Camps Delivered to Your Campus</div>
                         </div>
                     </div>
-                    <a href="" class="primary-btn">
-                        <i class="fas fa-paper-plane"></i> Apply for Program
-                    </a>
                 </div>
             </div>
         </div>
@@ -1592,31 +1741,45 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="feature-title">PROVIDING KOREA SHORT-TERM EXPERIENCE PROGRAM</h3>
+                    <p class="feature-description">Support for short-term experiential learning in Korea with high-quality field trip programs in collaboration with top companies, offering experiences that even locals don't have access to.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="feature-title">SPECIAL LECTURE & EVENT</h3>
+                    <p class="feature-description">Exclusive access to experts in popular Korean fields including K-pop dance, K-Food, K-Beauty etc. Featuring fan meetings and special lectures by celebrities and industry influencers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="feature-title">THE BEST INSTRUCTORS IN EACH FIELD</h3>
+                    <p class="feature-description">Learn from active industry professionals in Korea, including K-POP dancers, News announcers, Actors, Chefs and K-Beauty doctors, all currently working in their respective fields of expertise.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3 class="feature-title">Education with Current Experts</h3>
-                    <p class="feature-description">Top current experts in each field directly conduct classes, delivering practical, vivid experiences and know-how.</p>
+                    <h3 class="feature-title">KOREA STUDY ABROAD, EMPLOYMENT AND AUDITION LINKAGE SYSTEM</h3>
+                    <p class="feature-description">Direct pathways to Korean universities, job opportunities, and auditions. Connect to top educational institutions and employment networks in various Korean industries.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-globe-asia"></i>
+                        <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <h3 class="feature-title">Global Cultural Exchange</h3>
-                    <p class="feature-description">We create a true platform for global cultural exchange by moving between Korea and local overseas sites. While spreading Korean culture, participants also gain a deeper understanding of local cultures.</p>
+                    <h3 class="feature-title">A TRENDY LESSON METHOD THAT HAS NEVER EXISTED BEFORE</h3>
+                    <p class="feature-description">Innovative and engaging lessons focused on participation and outcomes, delivered through K-POP dance and various other areas of K-Culture.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-hands-helping"></i>
+                        <i class="fas fa-language"></i>
                     </div>
-                    <h3 class="feature-title">Study and Employment Support</h3>
-                    <p class="feature-description">Beyond simple cultural experiences, we provide practical assistance for studying and working in Korea, considering participants' future career paths.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-laugh-beam"></i>
-                    </div>
-                    <h3 class="feature-title">FUN & VARIETY</h3>
-                    <p class="feature-description">Boring classes? No! Through fun and diversity, we help participants experience the joy of learning and pursue sustainable growth.</p>
+                    <h3 class="feature-title">100% NATIVE LANGUAGE LESSONS</h3>
+                    <p class="feature-description">Authentic language immersion with all lessons taught in Korean by native Korean instructors.</p>
                 </div>
             </div>
         </div>
@@ -1627,7 +1790,7 @@
             <div class="section-header">
                 <p class="section-subtitle">Programs</p>
                 <h2 class="section-title">Our Educational Programs</h2>
-                <p class="section-description">Various short-term experiential programs conducted in Korea and overseas</p>
+                <p class="section-description">A wide range of immersive K-Culture programs offered both in Korea and internationally</p>
             </div>
             <div class="programs-content">
                 <div class="row">
@@ -1636,23 +1799,23 @@
                             <img src="Overseas Local Camp.jpg" alt="Overseas Local Camp" class="program-img">
                         </div>
                         <div class="program-content">
-                            <h3 class="program-title">Overseas K-Culture Global Camp</h3>
+                            <h3 class="program-title">K-Culture Global Camp (Overseas Edition)</h3>
                             <p class="program-description">Short-term camps conducted by dispatching Korean field specialists and educational programs directly to overseas locations</p>
                             <div class="program-features">
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Direct spread of Korean culture to local students</span>
+                                    <span>A distinguished K-Culture Global Camp delivered directly to your country and campus</span>
                                 </div>
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Vivid knowledge transfer from current experts</span>
+                                    <span>An immersive program led by the official Team K-Culture</span>
                                 </div>
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Various duration options from 1 to 24 weeks</span>
+                                    <span>A premier cultural education experience guided by leading experts and a structured curriculum</span>
                                 </div>
                             </div>
-                            <a href="" class="primary-btn">
+                            <a href="apply.html" class="primary-btn">
                                 <i class="fas fa-paper-plane"></i> Apply Now
                             </a>
                         </div>
@@ -1663,8 +1826,8 @@
                             <img src="Korean Culture Experience Camp.jpg" alt="Korean Culture Experience Camp" class="program-img">
                         </div>
                         <div class="program-content">
-                            <h3 class="program-title">Korean Culture Experience Camp</h3>
-                            <p class="program-description">Cultural education camps for overseas students combining Korean language education and Korean cultural experience</p>
+                            <h3 class="program-title">K-Culture Global Camp (In Korea)</h3>
+                            <p class="program-description">Cultural education camps combining Korean language education and Korean cultural experiences, open to anyone interested in visiting Korea</p>
                             <div class="program-features">
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
@@ -1676,10 +1839,10 @@
                                 </div>
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Opportunities to visit Korean universities and institutions</span>
+                                    <span>Opportunities to experience Korean universities and various K-Culture-related institutions</span>
                                 </div>
                             </div>
-                            <a href="" class="primary-btn">
+                            <a href="apply-korea.html" class="primary-btn">
                                 <i class="fas fa-paper-plane"></i> Apply Now
                             </a>
                         </div>
@@ -1691,7 +1854,7 @@
                         </div>
                         <div class="program-content">
                             <h3 class="program-title">K-Tour Program</h3>
-                            <p class="program-description">Experience Korean culture in-depth through guided tours of historical sites, cultural landmarks, and popular tourist destinations</p>
+                            <p class="program-description">Experience Korea in style through a curated travel program by Team K-Culture, featuring top cultural spots and trendiest destinations.</p>
                             <div class="program-features">
                                 <div class="program-feature">
                                     <i class="fas fa-check-circle"></i>
@@ -1706,7 +1869,7 @@
                                     <span>Tailored tours based on specific interests (K-pop, history, food, etc.)</span>
                                 </div>
                             </div>
-                            <a href="" class="primary-btn">
+                            <a href="k-beauty-package.html" class="primary-btn">
                                 <i class="fas fa-paper-plane"></i> Apply Now
                             </a>
                         </div>
@@ -1716,78 +1879,65 @@
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <p class="section-subtitle">Pricing</p>
-                <h2 class="section-title">Programs Offered at Reasonable Prices</h2>
-                <p class="section-description">Discounts provided based on program duration</p>
+                <p class="section-subtitle">Contact</p>
+                <h2 class="section-title">Get in Touch With Us</h2>
+                <p class="section-description">Have questions about our programs or interested in learning more?<br>
+                Feel free to reach out!</p>
             </div>
 
-            <div class="pricing-table-container">
-                <table class="pricing-table">
-                    <thead>
-                        <tr>
-                            <th>Duration</th>
-                            <th>Regular Price</th>
-                            <th>Discount Rate</th>
-                            <th>Final Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1 Week Camp</td>
-                            <td><span class="price-regular">$400</span></td>
-                            <td><span class="discount">0%</span></td>
-                            <td><span class="price">$400</span></td>
-                        </tr>
-                        <tr>
-                            <td>3 Week Camp</td>
-                            <td><span class="price-regular">$1,200</span></td>
-                            <td><span class="discount">2%</span></td>
-                            <td><span class="price">$1,176</span></td>
-                        </tr>
-                        <tr>
-                            <td>6 Week Camp</td>
-                            <td><span class="price-regular">$2,400</span></td>
-                            <td><span class="discount">4%</span></td>
-                            <td><span class="price">$2,304</span></td>
-                        </tr>
-                        <tr>
-                            <td>9 Week Camp</td>
-                            <td><span class="price-regular">$3,600</span></td>
-                            <td><span class="discount">6%</span></td>
-                            <td><span class="price">$3,384</span></td>
-                        </tr>
-                        <tr>
-                            <td>12 Week Camp</td>
-                            <td><span class="price-regular">$4,800</span></td>
-                            <td><span class="discount">8%</span></td>
-                            <td><span class="price">$4,416</span></td>
-                        </tr>
-                        <tr>
-                            <td>24 Week Camp</td>
-                            <td><span class="price-regular">$9,600</span></td>
-                            <td><span class="discount">10%</span></td>
-                            <td><span class="price">$8,640</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="contact-container">
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3 class="contact-title">Visit Us</h3>
+                            <p>Teheran-ro 427, Gangnam-gu,<br>Seoul, South Korea</p>
+                        </div>
+                    </div>
 
-            <div class="pricing-note">※ All prices are exclusive of VAT.</div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3 class="contact-title">Email Us</h3>
+                            <p>k.cultureglobalacademy@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3 class="contact-title">Working Hours</h3>
+                            <p>Weekdays: 09:00 - 18:00<br>(Korea Standard Time, KST)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-section">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.4153133881327!2d127.0554602!3d37.5049743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca405f59ac15d%3A0xd4bf008688518435!2s427%20Teheran-ro%2C%20Gangnam-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1631234567890!5m2!1sen!2skr" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="cta">
-        <div class="cta-particles" id="particles"></div>
+    <!-- Call To Action -->
+    <section id="cta" class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Apply Now</h2>
-                <p class="cta-description">Experience fun, diverse, and sustainable K-CULTURE education.</p>
-                <a href="" class="cta-btn">
-                    <i class="fas fa-paper-plane"></i> Apply Now
-                </a>
+                <h2>Ready to Begin Your Korean Cultural Journey?</h2>
+                <p>Join our global community of Korean culture enthusiasts and start your learning adventure today.</p>
+                <a href="#programs" class="cta-btn">Explore Programs</a>
             </div>
         </div>
     </section>
@@ -1811,16 +1961,15 @@
                         <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
                         <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
                         <li><a href="#programs"><i class="fas fa-chevron-right"></i> Programs</a></li>
-                        <li><a href="#pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                         <li><a href=""><i class="fas fa-chevron-right"></i> Apply Now</a></li>
                     </ul>
                 </div>
                 <div class="footer-column footer-contact">
                     <h3>Contact</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Gangnam-gu, Seoul, South Korea</p>
-                    <p><i class="fas fa-phone"></i> +82 10-1234-5678</p>
-                    <p><i class="fas fa-envelope"></i> info@kculture-academy.com</p>
-                    <p><i class="fas fa-clock"></i> Weekdays 09:00 - 18:00</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Teheran-ro 427, Gangnam-gu, Seoul, South Korea</p>
+                    <p><i class="fas fa-envelope"></i> k.cultureglobalacademy@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Weekdays 09:00 - 18:00 (Korea Standard Time, KST)</p>
                 </div>
             </div>
             <div class="footer-divider"></div>

@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for K-Culture Global Camp (In Korea)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff2e95;
+            --secondary-color: #6e20ff;
+            --accent-color: #00c2ff;
+            --gradient-start: #ff2e95;
+            --gradient-end: #6e20ff;
+            --gradient-accent: #00c2ff;
+            --text-color: #2c2c2c;
+            --text-color-light: #5e5e5e;
+            --light-bg: #f8f9fc;
+            --white: #FFFFFF;
+            --dark-color: #191c30;
+            --border-radius: 16px;
+            --box-shadow: 0 12px 32px rgba(28, 0, 78, 0.08);
+            --hover-transform: translateY(-8px);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: auto;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--dark-color);
+            font-weight: 900;
+            position: relative;
+        }
+
+        /* Removing the underline */
+        .logo-text span::after {
+            content: none;
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 160px 0 60px;
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.1), rgba(110, 32, 255, 0.1));
+            position: relative;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title h1::after {
+            content: none;
+        }
+        
+        .page-title h1 .edition {
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: var(--text-color-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .program-overview {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .program-overview h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .program-overview p {
+            font-size: 1.1rem;
+            color: var(--text-color-light);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .program-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .program-feature {
+            flex: 0 0 calc(50% - 15px);
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .program-feature:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .feature-content p {
+            font-size: 1rem;
+            color: var(--text-color-light);
+            margin: 0;
+        }
+
+        .program-categories {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 194, 255, 0.05), rgba(255, 46, 149, 0.05));
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            height: 100%;
+        }
+
+        .program-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 30px;
+        }
+
+        .program-duration {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, rgba(255, 46, 149, 0.1), rgba(110, 32, 255, 0.1));
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .program-duration i {
+            margin-right: 8px;
+        }
+
+        .program-title {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .program-description {
+            color: var(--text-color-light);
+            margin-bottom: 30px;
+        }
+
+        .program-features {
+            margin-bottom: 30px;
+        }
+
+        .program-feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .program-feature-item i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(110, 32, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .primary-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .primary-btn:hover::before {
+            opacity: 1;
+        }
+
+        .primary-btn i {
+            margin-right: 10px;
+        }
+
+        .primary-btn:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 20px 40px rgba(110, 32, 255, 0.3);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 60px;
+            transition: var(--transition);
+        }
+
+        .back-btn i {
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .back-btn:hover i {
+            transform: translateX(-5px);
+        }
+
+        .culture-modules {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.05), rgba(110, 32, 255, 0.05));
+        }
+
+        .culture-modules h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .module-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-icon {
+            margin-bottom: 20px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .module-icon i {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .module-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .module-description {
+            color: var(--text-color-light);
+            font-size: 0.95rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .program-feature {
+                flex: 0 0 100%;
+            }
+
+            .modules-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                padding: 140px 0 50px;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-title p {
+                font-size: 1rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .page-title p {
+                font-size: 1rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .program-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 50px auto;
+            max-width: 700px;
+        }
+
+        .program-button {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 20px 30px;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(110, 32, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: default;
+        }
+
+        .program-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(110, 32, 255, 0.3);
+        }
+
+        .program-button .duration {
+            position: relative;
+            display: block;
+        }
+
+        .program-button .duration::before {
+            content: none;
+        }
+
+        .program-button:nth-child(1) .duration::before,
+        .program-button:nth-child(2) .duration::before,
+        .program-button:nth-child(3) .duration::before,
+        .program-button:nth-child(4) .duration::before,
+        .program-button:nth-child(5) .duration::before {
+            content: none;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .program-buttons {
+                max-width: 100%;
+            }
+        }
+
+        /* Schedule Styles */
+        .schedule-section {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .schedule-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--text-color-light);
+            font-size: 1.1rem;
+        }
+
+        .schedule-note {
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto 0;
+            color: var(--text-color-light);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .schedule-container {
+            display: grid;
+            grid-template-columns: 150px repeat(5, 1fr);
+            gap: 2px;
+            margin: 0 auto 50px;
+            overflow-x: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 1000px;
+            border-collapse: collapse;
+        }
+        
+        .time-column, .day-column {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .time-column {
+            width: 150px;
+        }
+        
+        .time-header, .day-header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 600;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .time-slot {
+            background-color: #f0f0f0;
+            padding: 15px 10px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .time-slot.lunch {
+            height: 50px;
+        }
+        
+        .schedule-item {
+            padding: 15px 10px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            transition: var(--transition);
+        }
+        
+        .schedule-item.lunch {
+            height: 50px;
+        }
+        
+        .schedule-item.korean, 
+        .schedule-item.culture {
+            height: 120px;
+        }
+        
+        .schedule-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+        
+        .schedule-item i {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .schedule-item.korean {
+            background-color: rgba(110, 32, 255, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .schedule-item.korean span {
+            max-width: 130px;
+            line-height: 1.3;
+            display: block;
+            white-space: normal;
+        }
+        
+        .schedule-item.culture {
+            background-color: rgba(255, 46, 149, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .schedule-item.lunch, .time-slot.lunch {
+            background-color: rgba(0, 194, 255, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .schedule-item.special-class {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ff9800;
+            grid-row: span 3;
+        }
+        
+        .schedule-item.free {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+        
+        .schedule-item.weekend, .time-slot.weekend {
+            background-color: #f8f9fc;
+        }
+        
+        .special-classes {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .special-classes h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+        
+        .special-classes p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-color-light);
+        }
+        
+        .special-class-examples {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .special-class-item {
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.1), rgba(110, 32, 255, 0.1));
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .special-class-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .special-class-item i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Pricing Styles */
+        .pricing {
+            background-color: var(--white);
+            position: relative;
+            z-index: 1;
+            padding: 80px 0;
+        }
+
+        .pricing-table-container {
+            margin-top: 50px;
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 20px 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+        }
+
+        .pricing-table thead th {
+            font-weight: 600;
+            padding: 25px;
+            letter-spacing: 0.5px;
+            font-size: 1.1rem;
+        }
+
+        .pricing-table tbody tr {
+            transition: var(--transition);
+        }
+
+        .pricing-table tbody tr:hover {
+            background-color: rgba(110, 32, 255, 0.03);
+        }
+
+        .pricing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--dark-color);
+            text-align: left;
+        }
+
+        .pricing-table .discount {
+            color: var(--primary-color);
+            font-weight: 700;
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: rgba(255, 46, 149, 0.1);
+            border-radius: 30px;
+        }
+
+        .pricing-table .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .pricing-table .price-regular {
+            text-decoration: line-through;
+            color: var(--text-color-light);
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: var(--text-color-light);
+            background-color: rgba(110, 32, 255, 0.03);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Responsive styles for the schedule */
+        @media (max-width: 992px) {
+            .schedule-container {
+                grid-template-columns: 150px repeat(5, 1fr);
+                max-width: 900px;
+            }
+            
+            .time-slot, .schedule-item {
+                padding: 10px 5px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .schedule-container {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                width: 100%;
+            }
+            
+            .time-column, .day-column {
+                display: inline-block;
+                vertical-align: top;
+                width: 150px;
+            }
+            
+            .time-column {
+                width: 150px;
+            }
+            
+            .day-column.saturday {
+                width: 150px;
+            }
+            
+            .special-class-item {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .program-note {
+            text-align: center;
+            max-width: 700px;
+            margin: 30px auto 0;
+            color: var(--text-color-light);
+            font-size: 1rem;
+        }
+
+        .program-categories h2,
+        .schedule-section h2,
+        .pricing h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-container {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                width: 100%;
+            }
+            
+            .time-column, .day-column {
+                display: inline-block;
+                vertical-align: top;
+                width: 150px;
+            }
+            
+            .time-column {
+                width: 150px;
+            }
+            
+            .pricing-table-container {
+                overflow-x: auto;
+            }
+            
+            .pricing-table th,
+            .pricing-table td {
+                padding: 15px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .pricing-note {
+                width: 100%;
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .apply-button-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .apply-now-btn {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 18px 50px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 15px 35px rgba(110, 32, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .apply-now-btn i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .apply-now-btn:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 20px 40px rgba(110, 32, 255, 0.3);
+        }
+
+        .tour-package-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .tour-package-btn {
+            background: linear-gradient(135deg, rgba(255, 46, 149, 0.1), rgba(110, 32, 255, 0.1));
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 16px 40px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tour-package-btn i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .tour-package-btn:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            color: var(--primary-color);
+        }
+
+        .k-tour-program {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0, 194, 255, 0.05), rgba(255, 46, 149, 0.05));
+            text-align: center;
+        }
+        
+        .tour-features {
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img">
+                    <img src="logo.png" alt="K-CULTURE GLOBAL ACADEMY Logo" class="logo-img">
+                </div>
+                <div class="logo-text">K<span style="color: var(--dark-color);">-</span><span>CULTURE</span></div>
+            </a>
+        </div>
+    </header>
+
+    <section class="page-title">
+        <div class="container">
+            <h1>Apply for K-Culture Global Camp<br><span class="edition">(In Korea)</span></h1>
+            <p>Experience authentic Korean culture and language in Korea</p>
+        </div>
+    </section>
+
+    <section class="program-overview">
+        <div class="container">
+            <h2>Immerse Yourself in Korean Culture</h2>
+            <p>Our K-Culture Global Camp in Korea offers a unique opportunity to experience authentic Korean culture while learning the Korean language. Choose from various program durations based on your availability and learning goals.</p>
+            
+            <div class="program-features">
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Korean Language Education</h3>
+                        <p>Learn Korean from certified teachers in an immersive environment. Our curriculum is designed for all levels, from beginners to advanced learners.</p>
+                    </div>
+                </div>
+                
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Cultural Experience Programs</h3>
+                        <p>Immerse yourself in our 8 special fields of K-Culture: Korean Speaking, K-Pop Dance, K-Beauty, K-Drama, K-Makeup, K-Traditional Dance, K-Food, and K-Fitness.</p>
+                    </div>
+                </div>
+                
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Cultural Excursions</h3>
+                        <p>Visit historical sites, attend cultural events, and explore modern Korea through guided field trips and excursions.</p>
+                    </div>
+                </div>
+                
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Official Certification</h3>
+                        <p>Receive an official certificate upon completion that documents your achievements in both language and cultural studies.</p>
+                    </div>
+                </div>
+
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Korean Support Manager</h3>
+                        <p>Receive dedicated assistance from a Korean manager who will provide personalized support throughout your stay, helping with cultural adjustments and maximizing your educational experience.</p>
+                    </div>
+                </div>
+
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>100% Korean Lessons</h3>
+                        <p>Experience authentic language immersion with lessons conducted entirely in Korean, with English communication available for support when needed.</p>
+                    </div>
+                </div>
+
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>World-Class Instructors</h3>
+                        <p>Learn directly from Korea's top experts in each field, including professional performers, industry specialists, and renowned cultural practitioners.</p>
+                    </div>
+                </div>
+
+                <div class="program-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Content Creation Education</h3>
+                        <p>Develop your portfolio through our content creation-based educational approach, allowing you to create tangible projects and professional works.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="culture-modules">
+        <div class="container">
+            <h2>8 Special Fields of K-Culture</h2>
+            <div class="modules-grid">
+                <!-- Korean Speaking Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="module-title">Korean Speaking</h3>
+                    <p class="module-description">Learn the most precise Korean pronunciation directly from professional news anchors, focusing on authentic accent and perfect articulation.</p>
+                </div>
+
+                <!-- K-Pop Dance Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="module-title">K-Pop Dance</h3>
+                    <p class="module-description">Learn popular K-Pop choreography from top-tier Korean dancers and create your own K-Pop content, gaining authentic performance skills from industry professionals.</p>
+                </div>
+
+                <!-- K-Beauty Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="module-title">K-Beauty</h3>
+                    <p class="module-description">Visit renowned Korean dermatology clinics and explore K-Beauty firsthand, experiencing and studying the secrets behind Korea's world-famous skincare culture.</p>
+                </div>
+
+                <!-- K-Drama Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="module-title">K-Drama</h3>
+                    <p class="module-description">Learn Korean language and culture through scenes from popular K-Dramas, and create your own content inspired by Korean entertainment storytelling.</p>
+                </div>
+
+                <!-- K-Makeup Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="module-title">K-Makeup</h3>
+                    <p class="module-description">Learn professional Korean makeup techniques, trends, and applications used by K-beauty professionals.</p>
+                </div>
+
+                <!-- K-Traditional Dance Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-hat-wizard"></i>
+                    </div>
+                    <h3 class="module-title">K-Traditional Dance</h3>
+                    <p class="module-description">Experience traditional Korean dance forms, their cultural significance, and learn basic movements and performances.</p>
+                </div>
+
+                <!-- K-Food Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="module-title">K-Food</h3>
+                    <p class="module-description">Meet famous Korean chefs who have appeared on Netflix, experience authentic Korean cooking firsthand, and learn about the operations of Korean restaurants.</p>
+                </div>
+
+                <!-- K-Fitness Module -->
+                <div class="module-card">
+                    <div class="module-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="module-title">K-Fitness</h3>
+                    <p class="module-description">Discover Korean fitness trends, workout routines popular in Korea, and holistic approaches to health and wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-categories">
+        <div class="container">
+            <h2>Programs</h2>
+            <p class="schedule-intro">Choose your preferred program duration based on your availability and learning goals.</p>
+            <div class="program-buttons">
+                <div class="program-button">
+                    <span class="duration">1 Week Camp</span>
+                </div>
+                <div class="program-button">
+                    <span class="duration">3 Weeks Program</span>
+                </div>
+                <div class="program-button">
+                    <span class="duration">6 Weeks Program</span>
+                </div>
+                <div class="program-button">
+                    <span class="duration">12 Weeks Program</span>
+                </div>
+                <div class="program-button">
+                    <span class="duration">24 Weeks Program</span>
+                </div>
+            </div>
+            <p class="program-note">We offer flexible program durations to accommodate your schedule. Longer programs provide more in-depth learning experiences and opportunities to master both Korean language and cultural skills.</p>
+        </div>
+    </section>
+
+    <section class="schedule-section">
+        <div class="container">
+            <h2>Weekly Schedule</h2>
+            <p class="schedule-intro">Our structured program is designed to provide a perfect balance between language learning and cultural experiences.</p>
+            
+            <div class="schedule-container">
+                <div class="time-column">
+                    <div class="time-header">Time</div>
+                    <div class="time-slot">09:00 - 12:00</div>
+                    <div class="time-slot lunch">12:00 - 13:00</div>
+                    <div class="time-slot">13:00 - 15:00</div>
+                </div>
+                
+                <div class="day-column">
+                    <div class="day-header">Monday</div>
+                    <div class="schedule-item korean">
+                        <i class="fas fa-language"></i>
+                        <span>Korean Language Lesson</span>
+                    </div>
+                    <div class="schedule-item lunch">
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item culture">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Cultural Program</span>
+                    </div>
+                </div>
+                
+                <div class="day-column">
+                    <div class="day-header">Tuesday</div>
+                    <div class="schedule-item korean">
+                        <i class="fas fa-language"></i>
+                        <span>Korean Language Lesson</span>
+                    </div>
+                    <div class="schedule-item lunch">
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item culture">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Cultural Program</span>
+                    </div>
+                </div>
+                
+                <div class="day-column">
+                    <div class="day-header">Wednesday</div>
+                    <div class="schedule-item korean">
+                        <i class="fas fa-language"></i>
+                        <span>Korean Language Lesson</span>
+                    </div>
+                    <div class="schedule-item lunch">
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item culture">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Cultural Program</span>
+                    </div>
+                </div>
+                
+                <div class="day-column">
+                    <div class="day-header">Thursday</div>
+                    <div class="schedule-item korean">
+                        <i class="fas fa-language"></i>
+                        <span>Korean Language Lesson</span>
+                    </div>
+                    <div class="schedule-item lunch">
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item culture">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Cultural Program</span>
+                    </div>
+                </div>
+                
+                <div class="day-column">
+                    <div class="day-header">Friday</div>
+                    <div class="schedule-item korean">
+                        <i class="fas fa-language"></i>
+                        <span>Korean Language Lesson</span>
+                    </div>
+                    <div class="schedule-item lunch">
+                        <span>Lunch Break</span>
+                    </div>
+                    <div class="schedule-item culture">
+                        <i class="fas fa-theater-masks"></i>
+                        <span>Cultural Program</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="schedule-note">During Cultural Program sessions, participants engage in each field of K-Culture through specialized education, hands-on experiences, and field trips guided by industry experts.</p>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Tuition Fee</h2>
+            <p class="schedule-intro">We offer flexible pricing options to make our program accessible to everyone.</p>
+            
+            <div class="pricing-table-container">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Program Duration</th>
+                            <th>Regular Tuition</th>
+                            <th>Discount Rate</th>
+                            <th>Tuition Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 Week</td>
+                            <td>$500</td>
+                            <td><span class="discount">10%</span></td>
+                            <td><span class="price">$450</span></td>
+                        </tr>
+                        <tr>
+                            <td>3 Weeks</td>
+                            <td>$1,350</td>
+                            <td><span class="discount">15%</span></td>
+                            <td><span class="price">$1,147</span></td>
+                        </tr>
+                        <tr>
+                            <td>6 Weeks</td>
+                            <td>$2,500</td>
+                            <td><span class="discount">20%</span></td>
+                            <td><span class="price">$2,000</span></td>
+                        </tr>
+                        <tr>
+                            <td>12 Weeks</td>
+                            <td>$4,800</td>
+                            <td><span class="discount">25%</span></td>
+                            <td><span class="price">$3,600</span></td>
+                        </tr>
+                        <tr>
+                            <td>24 Weeks</td>
+                            <td>$8,500</td>
+                            <td><span class="discount">30%</span></td>
+                            <td><span class="price">$5,950</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pricing-note">Discount rates apply to early registrations. Contact us for additional information about payment options and scholarship opportunities.</div>
+            
+            <div class="apply-button-container">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrlTAIHrnK1D__z_yf_XsPMmZz-kZMI7KqVf9tyjCtDCgNDg/viewform?usp=dialog" class="apply-now-btn" target="_blank">
+                    <i class="fas fa-paper-plane"></i> Apply Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Header effect on scroll
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                document.getElementById('header').classList.add('scrolled');
+            } else {
+                document.getElementById('header').classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html> 
