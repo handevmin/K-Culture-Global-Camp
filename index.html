@@ -1531,7 +1531,7 @@
         .contact-card {
             background: var(--white);
             border-radius: var(--border-radius);
-            padding: 40px;
+            padding: 40px 30px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             display: flex;
@@ -1539,6 +1539,8 @@
             gap: 20px;
             position: relative;
             overflow: hidden;
+            min-height: 160px;
+            word-break: break-word;
         }
 
         .contact-card::before {
@@ -1584,18 +1586,15 @@
 
         .contact-info {
             flex-grow: 1;
-        }
-
-        .contact-title {
-            font-size: 1.2rem;
-            color: var(--dark-color);
-            margin-bottom: 12px;
+            min-width: 0;
         }
 
         .contact-info p {
             color: var(--text-color-light);
             line-height: 1.6;
             margin: 0;
+            font-size: 0.95rem;
+            word-wrap: break-word;
         }
 
         .map-section {
@@ -1618,7 +1617,7 @@
             border: none;
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .contact-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1631,10 +1630,7 @@
 
             .contact-card {
                 padding: 30px;
-            }
-
-            .map-section {
-                height: 350px;
+                min-height: auto;
             }
         }
     </style>
